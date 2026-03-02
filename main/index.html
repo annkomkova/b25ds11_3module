@@ -8,6 +8,23 @@
     <script defer src="javascripts/scripts.js"></script>
   </head>
   <body>
+    <div class="cursor"></div>
+
+    <section class="changeImg">
+      <div class="coords">
+        <p class="coordX">cursor X: __</p>
+        <p class="coordY">cursor Y: __</p>
+        <p class="viewport">width: __; height: __</p>
+      </div>
+
+      <div class="imgBox">
+        <div class="blickImg blickImg0"></div>
+        <div class="blickImg blickImg1"></div>
+        <div class="blickImg blickImg2"></div>
+        <div class="blickImg blickImg3"></div>
+      </div>
+    </section>
+
     <section class="header">
       <h1>
         <span>a</span>
@@ -20,6 +37,11 @@
         <span>o</span>
         <span>n</span>
       </h1>
+
+      <div class="popupContainer">
+        <div class="popup"></div>
+        <button class="randomCoordsButton">клик</button>
+      </div>
     </section>
 
     <section class="flipCards">
@@ -89,6 +111,13 @@
           stroke-width="4"
         />
       </svg>
+    </section>
+
+    <section class="randomElements">
+      <div class="randomImage">
+        <button class="randomImageButton">поменять</button>
+        <img src="images/smeshariki/smesharik1.webp" alt="смешарик" />
+      </div>
     </section>
   </body>
 </html>
