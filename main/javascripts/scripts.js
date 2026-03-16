@@ -4,7 +4,50 @@ drawSVG()
 getRandomImage()
 changeImgByCursor()
 animatePopup()
-moveCursor()
+// moveCursor()
+eyes()
+parallax()
+
+function parallax() {
+  let section = document.querySelector('.parallax')
+  let circles = document.querySelectorAll('.circle')
+
+  window.addEventListener('scroll', () => {
+    let rect = section.getBoundingClientRect()
+    let vh = window.innerHeight
+
+    let progress = (vh - rect.top) / (vh + rect.height)
+    let p = Math.max(0, Math.min(1, progress))
+
+    let moveY = (p - 0.6) * 400
+    let moveX = (p - 0.6) * 400
+    let scale = p * 0.3 + 1
+
+    circles.forEach((circle) => {
+      circle.style.transform = `translate(${-moveX}px, ${-moveY}px) scale(${scale})`
+    })
+  })
+}
+
+function eyes() {
+  let dots = document.querySelectorAll('.dot')
+
+  document.addEventListener('mousemove', (event) => {
+    dots.forEach((dot) => {
+      let rect = dot.getBoundingClientRect()
+      let dotX = rect.width / 2 + rect.left
+      let dotY = rect.height / 2 + rect.top
+
+      let dX = event.clientX - dotX
+      let dY = event.clientY - dotY
+      let angle = Math.atan2(dY, dX)
+
+      let deg = (180 / Math.PI) * angle
+
+      dot.style.transform = `rotate(${deg}deg)`
+    })
+  })
+}
 
 function moveCursor() {
   let cursor = document.querySelector('.cursor')
